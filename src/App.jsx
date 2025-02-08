@@ -1,5 +1,6 @@
 import './App.css'
 import BasicExample from './Components/Nav/Nav.jsx'
+import Form from './Components/Form/Form.jsx'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
       <BasicExample />
+      <Form />
     </>
   )
 }
