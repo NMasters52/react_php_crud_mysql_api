@@ -1,14 +1,15 @@
 import './App.css'
-import BasicExample from './Components/Nav/Nav.jsx'
-import Form from './Components/Form/Form.jsx'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Nav from './Components/Nav/Nav.jsx'
+import ListUser from './Components/ListUser/ListUser.jsx'
 
 function App() {
 
 
   return (
     <>
-      <BasicExample />
-      <Form />
+      <Nav />
+      <ListUser />
     </>
   )
 }

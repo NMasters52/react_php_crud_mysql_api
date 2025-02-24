@@ -1,9 +1,10 @@
 import './Nav.css'
 import Logo from '../../assets/logo_transparent.png'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
 
-function BasicExample() {
+export default function Nav() {
   return (
 
         <div className="navbar">   
@@ -21,5 +22,3 @@ function BasicExample() {
      
   );
 }
-
-export default BasicExample;
