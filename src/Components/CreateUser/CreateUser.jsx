@@ -6,13 +6,6 @@ export default function CreateUser() {
 
     const [inputs, setInputs] = useState({})
 
-    //prevents default behaviour of form submission
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        console.log(inputs);
-    } 
-
     //updates the state object when any form input changes
     //extracts the input's name and current value from the event
     //Then merges this new key-value pair with the existing state object
@@ -21,6 +14,14 @@ export default function CreateUser() {
         const value = event.target.value;
         setInputs(values => ({...values, [name]: value}));
     }
+
+    //prevents default behaviour of form submission
+    //prints the current state object to the console
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        console.log(inputs);
+    } 
 
     return (
         <div>
