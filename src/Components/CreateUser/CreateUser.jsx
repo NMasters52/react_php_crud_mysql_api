@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 import './CreateUser.css';
 
 export default function CreateUser() {
@@ -12,7 +13,7 @@ export default function CreateUser() {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setInputs(values => ({...values, [name]: value}));
+         
     }
 
     //prevents default behaviour of form submission
@@ -20,6 +21,7 @@ export default function CreateUser() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        axios.post('http://localhost:443/api/user/save', inputs)
         console.log(inputs);
     } 
 
@@ -56,9 +58,11 @@ export default function CreateUser() {
                              <input type="text" name="phone" onChange={handleChange} required />
                             </td>
                         </tr>
-                        <tr align="right">
+
+                        <tr>
                             <button>Create</button>
                         </tr>
+
                     </tbody>
                 </table>
                 
