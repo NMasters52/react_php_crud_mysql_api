@@ -21,7 +21,7 @@ export default function CreateUser() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:443/api/user/save', inputs)
+        axios.post('http://localhost/my-react-api/api/user/save', inputs)
         console.log(inputs);
     } 
 
