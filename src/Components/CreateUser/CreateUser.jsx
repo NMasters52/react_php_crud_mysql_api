@@ -59,9 +59,9 @@ export default function CreateUser() {
                             </td>
                         </tr>
 
-                        <tr>
+                        <div>
                             <button>Create</button>
-                        </tr>
+                        </div>
 
                     </tbody>
                 </table>
