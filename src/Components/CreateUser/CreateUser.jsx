@@ -2,8 +2,11 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import './CreateUser.css';
+import { useNavigate } from "react-router-dom";
 
 export default function CreateUser() {
+
+    const navigate = useNavigate();
 
     const [inputs, setInputs] = useState({})
 
@@ -30,7 +33,8 @@ export default function CreateUser() {
         })
             .then(response => {
                 console.log("Response received:", response.data);
-                // Handle success - show message to user
+                navigate('/');
+                // Handle success - show message to user and return to home page
             })
             .catch(error => {
                 console.error("Error occurred:", error);
