@@ -13,16 +13,29 @@ export default function CreateUser() {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-         
+        setInputs(values => ({...values, [name]: value}));
     }
 
     //prevents default behaviour of form submission
     //prints the current state object to the console
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        axios.post('http://localhost/my-react-api/api/user/save', inputs)
-        console.log(inputs);
+        console.log("Form submitted with data:", inputs);
+        
+        axios.post('http://localhost/my-react-api/api/index.php', inputs, {
+                
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+        })
+            .then(response => {
+                console.log("Response received:", response.data);
+                // Handle success - show message to user
+            })
+            .catch(error => {
+                console.error("Error occurred:", error);
+                // Handle error - show message to user
+            });
     } 
 
     return (
@@ -55,16 +68,15 @@ export default function CreateUser() {
                                 <label>Phone:</label>
                             </th>
                             <td>
-                             <input type="text" name="phone" onChange={handleChange} required />
+                             <input type="text" name="mobile" onChange={handleChange} required />
                             </td>
                         </tr>
 
-                        <div>
-                            <button>Create</button>
-                        </div>
+                        
 
                     </tbody>
                 </table>
+                <button>Create</button>
                 
             </form>
         </div>
