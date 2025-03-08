@@ -3,6 +3,7 @@ import './ListUser.css';
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function ListUser() {
 
@@ -45,6 +46,10 @@ export default function ListUser() {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.mobile}</td>
+                                <td>
+                                    <button>delete</button>
+                                    <Link to={`/edit/${user.id}`}>Edit</Link>
+                                </td>
                             </tr>
                         ))
                     }
