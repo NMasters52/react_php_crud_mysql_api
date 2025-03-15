@@ -23,6 +23,18 @@ export default function ListUser() {
         });
     }   
 
+    const deletUser = (id) => {
+        axios.delete(`http://localhost/my-react-api/api/index.php/${id}`)
+            .then(response => {
+                console.log("Response received:", response.data);
+                getUserList(); // Refresh the user list after deletion
+            })
+            .catch(error => {
+                console.error("Error occurred:", error);
+            });
+    };
+    
+
     
     return (
         <div>
@@ -47,7 +59,7 @@ export default function ListUser() {
                                 <td>{user.email}</td>
                                 <td>{user.mobile}</td>
                                 <td>
-                                    <button>delete</button>
+                                    <button onClick={() => deletUser(user.id)}>delete</button>
                                     <Link to={`/edit/${user.id}`}>Edit</Link>
                                 </td>
                             </tr>
